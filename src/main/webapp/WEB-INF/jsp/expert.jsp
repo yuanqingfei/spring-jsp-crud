@@ -5,9 +5,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
 	<title>专家页面</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<style type="text/css">
 		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
 		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
@@ -22,7 +22,7 @@
 
 <c:url var="addAction" value="/experts/add" ></c:url>
 
-<form:form action="${addAction}" commandName="expert">
+<form:form action="${addAction}" modelAttribute="expert">
 <table>
 	<c:if test="${!empty expert.name}">
 	<tr>

@@ -1,5 +1,6 @@
 package com.koneu.expert;
 
+import com.koneu.common.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/experts")
-public class ExpertController {
+public class ExpertController extends BaseController {
 
     @Autowired
     private ExpertService expertService;

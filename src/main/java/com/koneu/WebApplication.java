@@ -17,6 +17,7 @@
 package com.koneu;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.koneu.common.MyFilter;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -25,6 +26,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
+
+import javax.servlet.Filter;
 
 @SpringBootApplication
 @PropertySource({"classpath:jdbc.properties"})
@@ -48,6 +51,12 @@ public class WebApplication extends SpringBootServletInitializer {
 		ds.setPassword(jdbcPassword);
 		ds.setUsername(jdbcUserName);
 		return ds;
+	}
+
+	@Bean
+	public Filter myFilter() {
+		MyFilter filter = new MyFilter();
+		return filter;
 	}
 
 	@Override
