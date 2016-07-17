@@ -18,7 +18,7 @@ public class User {
 
     private Boolean locked;
 
-//    private Long credit;
+    private Long credit;
 
     private Date lastVisit;
 
@@ -65,13 +65,13 @@ public class User {
         this.locked = locked;
     }
 
-//    public Long getCredit() {
-//        return credit;
-//    }
-//
-//    public void setCredit(Long credit) {
-//        this.credit = credit;
-//    }
+    public Long getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Long credit) {
+        this.credit = credit;
+    }
 
     public Date getLastVisit() {
         return lastVisit;
@@ -97,7 +97,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", type='" + type + '\'' +
                 ", locked=" + locked +
-//                ", credit=" + credit +
+                ", credit=" + credit +
                 ", lastVisit=" + lastVisit +
                 ", lastIp='" + lastIp + '\'' +
                 '}';

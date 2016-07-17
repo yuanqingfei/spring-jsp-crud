@@ -24,7 +24,7 @@ public class UserService {
      * 注册一个新用户,如果用户名已经存在此抛出UserExistException的异常
      * @param user
      */
-    public void register(User user) throws UserExistException{
+    public User register(User user) throws UserExistException{
         User u = this.getUserByUserName(user.getName());
         if(u != null){
             throw new UserExistException("用户名已经存在");
@@ -34,6 +34,7 @@ public class UserService {
             user.setLastVisit(new Date());
             user.setType(UserTypeEnum.NORMAL);
             userDao.insert(user);
+            return user;
         }
     }
 
@@ -61,7 +62,7 @@ public class UserService {
      * @param userId
      * @return
      */
-    public User getUserById(Long userId){
+    public User getUser(Long userId){
         return userDao.get(userId);
     }
 
@@ -69,7 +70,7 @@ public class UserService {
      * 将用户锁定，锁定的用户不能够登录
      * @param userName 锁定目标用户的用户名
      */
-    public void lockUser(String userName){
+    public void lock(String userName){
         User user = userDao.getByName(userName);
         user.setLocked(true);
         update(user);
@@ -79,7 +80,7 @@ public class UserService {
      * 解除用户的锁定
      * @param userName 解除锁定目标用户的用户名
      */
-    public void unlockUser(String userName){
+    public void unlock(String userName){
         User user = userDao.getByName(userName);
         user.setLocked(false);
         update(user);
@@ -99,7 +100,7 @@ public class UserService {
      * 获取所有用户
      * @return 所有用户
      */
-    public List<User> getAllUsers(){
+    public List<User> getAll(){
         return userDao.getAll();
     }
 
@@ -115,5 +116,9 @@ public class UserService {
 //        loginLog.setLoginDate(new Date());
 //        userDao.update(user);
 //        loginLogDao.save(loginLog);
+    }
+
+    public void deleteUser(String id){
+        userDao.delete(Long.valueOf(id));
     }
 }

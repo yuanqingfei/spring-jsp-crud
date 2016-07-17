@@ -9,9 +9,19 @@ public class Expert {
 
     private String name;
 
+    private String gender;
+
     private String title;
 
-    private String department;
+    private String hospital;
+
+    private DepartmentEnum department;
+
+    private String speciality;
+
+    private byte[] photo;
+
+    private String introduction;
 
     public String getId() {
         return id;
@@ -37,22 +47,64 @@ public class Expert {
         this.title = title;
     }
 
-    public String getDepartment() {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+
+    public DepartmentEnum getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(DepartmentEnum department) {
         this.department = department;
     }
 
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
 
     @Override
     public String toString() {
         return "Expert{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
                 ", title='" + title + '\'' +
-                ", department='" + department + '\'' +
+                ", hospital='" + hospital + '\'' +
+                ", department=" + department +
+                ", speciality='" + speciality + '\'' +
                 '}';
     }
 }

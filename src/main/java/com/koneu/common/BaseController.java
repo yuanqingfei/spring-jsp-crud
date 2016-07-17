@@ -30,8 +30,7 @@ public class BaseController {
 	 * @return
 	 */
 	protected User getSessionUser(HttpServletRequest request) {
-		return (User) request.getSession().getAttribute(
-				CommonConstant.USER_CONTEXT);
+		return (User) request.getSession().getAttribute(CommonConstant.USER_CONTEXT);
 	}
    
 	/**
@@ -40,8 +39,7 @@ public class BaseController {
 	 * @param user
 	 */
 	protected void setSessionUser(HttpServletRequest request,User user) {
-		request.getSession().setAttribute(CommonConstant.USER_CONTEXT,
-				user);
+		request.getSession().setAttribute(CommonConstant.USER_CONTEXT, user);
 	}
 	
 
